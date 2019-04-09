@@ -26,6 +26,10 @@ public class WildcardPECS {
         printProducer(catList);
         printConsumer(catList);
 
+        List<HomeCat> homeCatList = new ArrayList<>();
+        homeCatList.add(new HomeCat("homeCat"));
+        printProducer(homeCatList);
+
     }
 
     private static void printProducer(List<? extends Cat> catList) {
@@ -44,6 +48,10 @@ public class WildcardPECS {
         //catList.add(new Animal());// Ошибка
         catList.add(new Cat());
         catList.add(new HomeCat("noName"));
+
+        Object item = catList.get(0);
+        System.out.println("item from the list:" + item);
+
         catList.forEach(System.out::println);
     }
 
