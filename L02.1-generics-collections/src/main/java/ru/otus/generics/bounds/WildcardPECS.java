@@ -29,6 +29,7 @@ public class WildcardPECS {
         List<HomeCat> homeCatList = new ArrayList<>();
         homeCatList.add(new HomeCat("homeCat"));
         printProducer(homeCatList);
+       // printConsumer(homeCatList); //ошибка
 
     }
 
@@ -45,6 +46,7 @@ public class WildcardPECS {
     }
 
     private static void printConsumer(List<? super Cat> catList) {
+        //catList.add(new Object());// Ошибка
         //catList.add(new Animal());// Ошибка
         catList.add(new Cat());
         catList.add(new HomeCat("noName"));
