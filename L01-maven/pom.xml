@@ -12,8 +12,8 @@
     </parent>
 
 
-    <artifactId>L01.1-maven</artifactId>
-    <name>L01.1-maven</name>
+    <artifactId>L01-maven</artifactId>
+    <name>L01-maven</name>
 
     <dependencies>
         <dependency>

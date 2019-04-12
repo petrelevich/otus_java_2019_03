@@ -21,7 +21,7 @@
     </developers>
 
     <modules>
-        <module>L01.1-maven</module>
+        <module>L01-maven</module>
     </modules>
 
     <properties>
