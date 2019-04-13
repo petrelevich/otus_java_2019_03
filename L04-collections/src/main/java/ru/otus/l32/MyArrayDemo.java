@@ -27,6 +27,7 @@ public class MyArrayDemo {
             summ1 += myArr.getValue(idx);
         }
         System.out.println("myArr time:" + (System.currentTimeMillis() - begin));
+        myArr.close();
 ////
         System.out.println("-----");
         long summ2 = 0;
