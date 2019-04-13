@@ -16,23 +16,23 @@ public class MyArrayDemo {
         int arraySizeInit = 10;
 ///////////
         long summ1 = 0;
-        MyArrayInt myArr = new MyArrayInt(arraySizeInit);
-        long begin = System.currentTimeMillis();
+        try (MyArrayInt myArr = new MyArrayInt(arraySizeInit);) {
+            long begin = System.currentTimeMillis();
 
-        for (int idx = 0; idx < arraySizeMax; idx++) {
-            myArr.setValue(idx, idx);
-        }
+            for (int idx = 0; idx < arraySizeMax; idx++) {
+                myArr.setValue(idx, idx);
+            }
 
-        for (int idx = 0; idx < arraySizeMax; idx++) {
-            summ1 += myArr.getValue(idx);
+            for (int idx = 0; idx < arraySizeMax; idx++) {
+                summ1 += myArr.getValue(idx);
+            }
+            System.out.println("myArr time:" + (System.currentTimeMillis() - begin));
         }
-        System.out.println("myArr time:" + (System.currentTimeMillis() - begin));
-        myArr.close();
 ////
         System.out.println("-----");
         long summ2 = 0;
         List<Integer> arrayList = new ArrayList<>(arraySizeInit);
-        begin = System.currentTimeMillis();
+        long begin = System.currentTimeMillis();
 
         for (int idx = 0; idx < arraySizeMax; idx++) {
             arrayList.add(idx, idx);
