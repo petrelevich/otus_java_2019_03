@@ -22,6 +22,7 @@
 
     <modules>
         <module>L01-maven</module>
+        <module>L06-annotations-reflection</module>
     </modules>
 
     <properties>
