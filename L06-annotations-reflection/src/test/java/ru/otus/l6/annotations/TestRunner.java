@@ -13,6 +13,7 @@ public class TestRunner {
     }
 
     private static void run(Class<?> testClass) {
+        // JUnit 5
         final LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
                 .selectors(
                         selectClass(testClass)
@@ -22,6 +23,7 @@ public class TestRunner {
         final Launcher launcher = LauncherFactory.create();
         launcher.execute(request);
 
+//        JUnit 4
 //        JUnitCore junit = new JUnitCore();
 //        junit.run(testClass.class);
     }
