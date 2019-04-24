@@ -10,6 +10,7 @@ import org.openjdk.jol.vm.VM;
 
 //VM option: -Djdk.attach.allowAttachSelf
 //-XX:ObjectAlignmentInBytes=256
+//-XX:-UseCompressedOops
 public class JolExample {
 
     public static void main(String[] args)  {
