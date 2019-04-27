@@ -8,7 +8,7 @@
     <parent>
         <groupId>ru.otus</groupId>
         <artifactId>OtusJavaHW</artifactId>
-        <version>2018-06-SNAPSHOT</version>
+        <version>2019-03-SNAPSHOT</version>
     </parent>
 
 
