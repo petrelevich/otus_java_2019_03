@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.otus</groupId>
-    <artifactId>L05.2-tests</artifactId>
+    <artifactId>L05-tests</artifactId>
     <version>2018-08</version>
 
     <properties>
