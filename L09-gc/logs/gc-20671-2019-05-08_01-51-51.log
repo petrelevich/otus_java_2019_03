@@ -1,0 +1,7 @@
+[2019-05-08T01:51:51.901+0300][0.004s][debug][gc] ConcGCThreads: 3 offset 22
+[2019-05-08T01:51:51.902+0300][0.004s][debug][gc] ParallelGCThreads: 10
+[2019-05-08T01:51:51.902+0300][0.005s][debug][gc] Initialize mark stack with 4096 chunks, maximum 16384
+[2019-05-08T01:51:51.945+0300][0.048s][info ][gc] Using G1
+[2019-05-08T01:51:53.211+0300][1,314s][info ][gc] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 1240M->1227M(20480M) 387,976ms
+[2019-05-08T01:51:54.113+0300][2,216s][info ][gc] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 2315M->2328M(20480M) 453,670ms
+[2019-05-08T01:51:54.794+0300][2,897s][info ][gc] GC(2) Pause Young (Normal) (G1 Evacuation Pause) 3416M->3436M(20480M) 257,143ms
