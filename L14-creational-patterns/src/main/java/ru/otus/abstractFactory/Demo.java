@@ -18,7 +18,9 @@ public class Demo {
     }
 
     public static void main(String[] args) {
-
+        AbstractAbstractFactory abstractAbstractFactory = new AbstractAbstractFactory();
+        new Demo(abstractAbstractFactory.createFactory("led"));
+        new Demo(abstractAbstractFactory.createFactory("luminescent"));
     }
 
 }
