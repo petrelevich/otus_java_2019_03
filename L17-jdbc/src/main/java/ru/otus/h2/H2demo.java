@@ -41,7 +41,7 @@ public class H2demo {
             pst.setInt(1, id);
             pst.setString(2, "NameValue");
             try {
-                int rowCount = pst.executeUpdate();
+                int rowCount = pst.executeUpdate(); //Блокирующий вызов
                 this.connection.commit();
                 System.out.println("inserted rowCount:" + rowCount);
             } catch (SQLException ex) {
