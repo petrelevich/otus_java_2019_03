@@ -16,6 +16,7 @@ import java.util.Optional;
 
 /*
 *
+* 0) Не забываем добавлять интерфейсы в mybatis-config.xml и подключать логирование в ehcache.xml
 * 1) Реализовать интерфейс PersonDao. Должны поддерживаться методы ''int insert(Person person)'', ''Person selectOne(int id)''
 * 2) Реализовать интерфейс AddressDao. Должны поддерживаться методы ''int insert(Address address)'', ''Address selectOne(int id)''
 * 3) Реализовать в интерфейсе PersonDao метод ''List<Person> selectByCity(String city)'' (нужен join с таблицей address)
