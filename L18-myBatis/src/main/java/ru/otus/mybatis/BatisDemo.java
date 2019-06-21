@@ -4,12 +4,15 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import ru.otus.mybatis.lesson.Address;
+import ru.otus.mybatis.lesson.AddressDao;
+import ru.otus.mybatis.lesson.Person;
+import ru.otus.mybatis.lesson.PersonDao;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -35,13 +38,43 @@ class BatisDemo {
     }
 
     void start() {
-        selectOne();
+//        selectOne();
 //        selectAll();
 //        selectLike();
 //        selectForEach();
 //        insert();
 //        selectOneInterface();
 //        selectCached();
+        selectPersonByCity();
+    }
+
+    private void selectPersonByCity() {
+        try (SqlSession session = sqlSessionFactory.openSession()) {
+            PersonDao personDao = session.getMapper(PersonDao.class);
+            AddressDao addressDao = session.getMapper(AddressDao.class);
+
+            Person person = new Person();
+            person.setId(1);
+            person.setFirstName("John");
+            person.setLastName("Black");
+
+            Person person2 = new Person();
+            person2.setId(2);
+            person2.setFirstName("Vadim");
+            person2.setLastName("Tisov");
+
+            Address address = new Address();
+            address.setId(1);
+            address.setPersonId(2);
+            address.setCity("Moscow");
+
+            personDao.insert(person);
+            personDao.insert(person2);
+            addressDao.insert(address);
+
+            System.out.println(personDao.selectByCity("Moscow"));
+
+        }
     }
 
     private void selectOne() {

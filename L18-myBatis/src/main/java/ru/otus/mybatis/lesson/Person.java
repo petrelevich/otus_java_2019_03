@@ -1,6 +1,6 @@
 package ru.otus.mybatis.lesson;
 
-public class Person {
+public class  Person {
 
     private int id;
     private String firstName;

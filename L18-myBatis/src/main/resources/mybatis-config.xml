@@ -7,7 +7,7 @@
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="UNPOOLED">
-                <property name="driver" value="org.h2.Driver" />
+                <property name="driver" value="org.h2.Driver"/>
                 <property name="url" value="jdbc:h2:mem:testDB;DB_CLOSE_DELAY=-1"/>
             </dataSource>
         </environment>
@@ -15,6 +15,8 @@
     <mappers>
         <mapper resource="TestMapper.xml"/>
         <mapper class="ru.otus.mybatis.TestMapperInterface"/>
+        <mapper class="ru.otus.mybatis.lesson.PersonDao"/>
+        <mapper class="ru.otus.mybatis.lesson.AddressDao"/>
     </mappers>
 </configuration>
 

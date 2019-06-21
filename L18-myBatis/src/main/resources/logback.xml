@@ -16,6 +16,14 @@
         <appender-ref ref="STDOUT" />
     </logger>
 
+    <logger name="ru.otus.mybatis.lesson.PersonDao" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <logger name="ru.otus.mybatis.lesson.AddressDao" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
     <logger name="net.sf.ehcache" level="info" additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
