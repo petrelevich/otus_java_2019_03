@@ -3,6 +3,7 @@ package ru.otus.connectionPool;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,13 +15,11 @@ import java.sql.Savepoint;
  * Во время работы приложения, через jConsole постепенно увеличивать количество коннектов до 6.
  * !!! Коннекты создаются не сразу. Надо подождать пока не увидим увеличение количества работающих с коннектами потоков в логе
  *
- * 2) Уменьшать setMaximumPoolSize. Почему количество соединений не уменьшается?
- *
  * */
 
 public class ConnectionPoolDemo {
     private static final String URL = "jdbc:h2:mem:testDB;DB_CLOSE_DELAY=-1";
-    private final HikariDataSource dataSource;
+    private final DataSource dataSource;
 
 
     public ConnectionPoolDemo() {
@@ -28,13 +27,12 @@ public class ConnectionPoolDemo {
         config.setJdbcUrl(URL);
         config.setConnectionTimeout(60000); //ms This property controls the maximum number of milliseconds that a client (that's you) will wait for a connection from the pool.
         config.setIdleTimeout(2000); //ms This property controls the maximum amount of time that a connection is allowed to sit idle in the pool.
-        config.setMaxLifetime(600000);//ms This property controls the maximum lifetime of a connection in the pool.
-        config.setAutoCommit(true);
-        config.setMinimumIdle(5); // This property controls the minimum number of idle connections that HikariCP tries to maintain in the pool.
+        config.setMinimumIdle(1); // This property controls the minimum number of idle connections that HikariCP tries to maintain in the pool.
         config.setMaximumPoolSize(3); // This property controls the maximum size that the pool is allowed to reach, including both idle and in-use connections.
+        config.setAutoCommit(true);
+        config.setMaxLifetime(600000);//ms This property controls the maximum lifetime of a connection in the pool.
         config.setPoolName("DemoHiPool"); // This property represents a user-defined name for the connection pool.
         config.setRegisterMbeans(true); // This property controls whether or not JMX Management Beans ("MBeans") are registered or not. Default: false.
-
         dataSource = new HikariDataSource(config);
     }
 
