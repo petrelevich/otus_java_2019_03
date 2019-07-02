@@ -24,6 +24,7 @@ public class EhcacheDemo {
     private static final Logger logger = LoggerFactory.getLogger(EhcacheDemo.class);
 
     public static void main(String[] args) {
+        org.apache.log4j.BasicConfigurator.configure();
         var demo = new EhcacheDemo();
     //    demo.withoutCache();
         demo.withCache();
