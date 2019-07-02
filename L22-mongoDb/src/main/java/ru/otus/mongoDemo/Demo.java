@@ -33,8 +33,8 @@ public class Demo {
     public static void main(String[] args) throws Throwable {
         Demo demo = new Demo();
     //    demo.start();
-    //    demo.writer();
-        demo.reader();
+        demo.writer();
+    //    demo.reader();
     }
 
     public Demo() {

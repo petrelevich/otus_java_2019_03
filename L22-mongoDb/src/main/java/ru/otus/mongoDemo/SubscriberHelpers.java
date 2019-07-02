@@ -40,7 +40,7 @@ public class SubscriberHelpers {
         public void onNext(final T t) {
             results.add(t);
             if (printResults) {
-                System.out.println(t);
+                System.out.println("onNext, result:" + t);
             }
          }
 
