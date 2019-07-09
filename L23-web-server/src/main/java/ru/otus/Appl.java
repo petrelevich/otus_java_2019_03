@@ -18,9 +18,14 @@ import ru.otus.servlets.Data;
 import ru.otus.servlets.PublicInfo;
 import ru.otus.servlets.PrivateInfo;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collections;
 
+/**
+ * Чтобы запустить пример из jar файла, положите в каталог с jar-файлом файл  realm.properties
+ */
 
 public class Appl {
     private final static int PORT = 8080;
@@ -35,7 +40,7 @@ public class Appl {
         server.join();
     }
 
-    public Server createServer(int port) {
+    public Server createServer(int port) throws MalformedURLException {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(new PublicInfo()), "/publicInfo");
         context.addServlet(new ServletHolder(new PrivateInfo()), "/privateInfo");
@@ -65,7 +70,7 @@ public class Appl {
         return resourceHandler;
     }
 
-    private SecurityHandler createSecurityHandler(ServletContextHandler context) {
+    private SecurityHandler createSecurityHandler(ServletContextHandler context) throws MalformedURLException {
         Constraint constraint = new Constraint();
         constraint.setName("auth");
         constraint.setAuthenticate(true);
@@ -79,7 +84,16 @@ public class Appl {
         //как декодировать стороку с юзером:паролем https://www.base64decode.org/
         security.setAuthenticator(new BasicAuthenticator());
 
-        URL propFile = Appl.class.getClassLoader().getResource("realm.properties");
+        URL propFile = null;
+        File realmFile = new File("./realm.properties");
+        if (realmFile.exists()) {
+            propFile = realmFile.toURI().toURL();
+        }
+        if (propFile == null) {
+            System.out.println("local realm config not found, looking into Resources");
+            propFile = Appl.class.getClassLoader().getResource("realm.properties");
+        }
+
         if (propFile == null) {
             throw new RuntimeException("Realm property file not found");
         }
