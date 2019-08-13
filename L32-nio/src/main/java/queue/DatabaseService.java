@@ -10,7 +10,7 @@ public class DatabaseService implements MessageClient {
     private static Logger logger = LoggerFactory.getLogger(DatabaseService.class);
     private final MessageSystem ms;
 
-    public DatabaseService(MessageSystem ms) {
+    DatabaseService(MessageSystem ms) {
         this.ms = ms;
     }
 

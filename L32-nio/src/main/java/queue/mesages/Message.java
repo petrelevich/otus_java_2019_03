@@ -10,7 +10,7 @@ public abstract class Message {
         this.queue = queue;
     }
 
-    public  ArrayBlockingQueue<Message> getQueueTo() {
+    public ArrayBlockingQueue<Message> getQueueTo() {
         return queue;
     }
 

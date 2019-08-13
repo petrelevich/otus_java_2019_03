@@ -11,7 +11,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class MessageSystem {
+class MessageSystem {
     private static Logger logger = LoggerFactory.getLogger(MessageSystem.class);
 
     private MessageClient frontend;
@@ -28,7 +28,7 @@ public class MessageSystem {
     MessageSystem() {
     }
 
-    public void init() {
+    void init() {
         executorInbox.execute(this::processMsgInbox);
         executorFrontend.execute(() -> this.processMsgOutbox(forFrontend, frontend));
         executorDatabase.execute(() -> this.processMsgOutbox(forDatabase, databaseService));
@@ -42,7 +42,7 @@ public class MessageSystem {
         queueInbox.put(msg);
     }
 
-    private void processMsgInbox()  {
+    private void processMsgInbox() {
         while (!Thread.currentThread().isInterrupted()) {
             try {
                 Message msg = queueInbox.take();

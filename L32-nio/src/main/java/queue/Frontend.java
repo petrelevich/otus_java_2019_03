@@ -10,7 +10,7 @@ public class Frontend implements MessageClient {
 
     private final MessageSystem ms;
 
-    public Frontend(MessageSystem ms) {
+    Frontend(MessageSystem ms) {
         this.ms = ms;
     }
 
@@ -21,12 +21,12 @@ public class Frontend implements MessageClient {
     }
 
 
-    public void createUser(String userName) throws InterruptedException {
+    void createUser(String userName) throws InterruptedException {
         ms.sendMessage(ms.createMessageForDatabase(userName));
     }
 
     @Override
-    public void accept(Message msg) throws InterruptedException {
+    public void accept(Message msg) {
         String dataFromDataBase = msg.process();
         logger.info("message from database: {}", dataFromDataBase);
     }
