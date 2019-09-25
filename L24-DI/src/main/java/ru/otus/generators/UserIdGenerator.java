@@ -1,4 +1,4 @@
-package ru.otus.services;
+package ru.otus.generators;
 
 public interface UserIdGenerator {
     long getUserId();

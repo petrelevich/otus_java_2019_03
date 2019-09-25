@@ -2,7 +2,7 @@ package ru.otus.repostory;
 
 import org.springframework.stereotype.Repository;
 import ru.otus.domain.User;
-import ru.otus.services.UserIdGenerator;
+import ru.otus.generators.UserIdGenerator;
 
 import java.util.ArrayList;
 import java.util.List;

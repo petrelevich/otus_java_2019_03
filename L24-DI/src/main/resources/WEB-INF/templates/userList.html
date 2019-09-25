@@ -11,11 +11,24 @@
         .users, .users td {
             border: 1px solid lightgray;
             padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: block;
+        }
+    </style>
+
+    <style th:inline="text">
+        h3 {
+            background: url([[@{/listmark.png}]]) no-repeat;
+            padding: 2px;
+            padding-left: 30px;
         }
     </style>
 </head>
 <body>
-<h1>Users:</h1>
+    <h3>Users:</h3>
 
     <table class="users">
         <thead>
@@ -32,5 +45,11 @@
         </tbody>
     </table>
     <a th:href="@{/user/create}" href="userCreate.html">New user</a>
+
+    <br/><br/>
+    <h3>Greetings:</h3>
+    <a th:href="@{/hello?name=Vasya}">Old school greeting</a>
+    <a th:href="@{/hello/Jone}">REST API style greeting</a>
+
 </body>
 </html>

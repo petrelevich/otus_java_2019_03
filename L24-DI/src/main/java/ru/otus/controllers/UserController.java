@@ -21,14 +21,14 @@ public class UserController {
     }
 
     @GetMapping({"/", "/user/list"})
-    public String userList(Model model) {
+    public String userListView(Model model) {
         List<User> users = repository.findAll();
         model.addAttribute("users", users);
         return "userList.html";
     }
 
     @GetMapping("/user/create")
-    public String userCreate(Model model) {
+    public String userCreateView(Model model) {
         model.addAttribute("user", new User());
         return "userCreate.html";
     }

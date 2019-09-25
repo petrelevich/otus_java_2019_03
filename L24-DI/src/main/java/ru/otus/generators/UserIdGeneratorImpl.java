@@ -1,10 +1,10 @@
-package ru.otus.services;
+package ru.otus.generators;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-@Service
+@Component
 public class UserIdGeneratorImpl implements UserIdGenerator {
 
     private static AtomicLong USER_ID = new AtomicLong(0);
